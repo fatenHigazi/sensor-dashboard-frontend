@@ -8,18 +8,13 @@ import { map } from 'rxjs/operators';
   templateUrl: './temperature-graph.component.html'
 })
 export class TemperatureGraphComponent implements OnInit {
-  sensorData$!: Observable<SensorData[]>;
-  temperatureData: number[] = [];
+  temperatureData$!: Observable<number[]>;  // ✅ Store transformed data
 
   constructor(private sensorService: SensorService) {}
 
   ngOnInit(): void {
-    this.sensorData$ = this.sensorService.getSensorData();
-    this.sensorData$.pipe(
-      map(sensorData => sensorData.map(d => d.temperature))
-    ).subscribe(tempData => {
-      this.temperatureData = tempData;
-      console.log("Processed Temperature Data:", this.temperatureData);
-    });
+    this.temperatureData$ = this.sensorService.getSensorData().pipe(
+      map(sensorData => sensorData.map(d => d.temperature)) // ✅ Transform before using in template
+    );
   }
 }

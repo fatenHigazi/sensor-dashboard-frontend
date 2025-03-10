@@ -3,6 +3,8 @@ import { DashboardComponent } from './dashboard.component';
 import { SensorService } from '../sensor.service';
 import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { expect } from '@jest/globals';
+
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;

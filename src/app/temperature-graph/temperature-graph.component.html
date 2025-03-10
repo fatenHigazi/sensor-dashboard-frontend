@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let temp of (sensorData$ | async)?.map(d => d.temperature)">
+    <li *ngFor="let temp of (temperatureData$ | async)">
       {{ temp }}°C
     </li>
   </ul>

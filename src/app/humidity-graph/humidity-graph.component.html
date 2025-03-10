@@ -1,1 +1,6 @@
-<div echarts [options]="chartOptions" style="height:400px;"></div>
+<ul>
+    <li *ngFor="let humidity of (humidityData$ | async)">
+      {{ humidity }}%
+    </li>
+  </ul>
+  

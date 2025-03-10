@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { expect } from '@jest/globals';
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
